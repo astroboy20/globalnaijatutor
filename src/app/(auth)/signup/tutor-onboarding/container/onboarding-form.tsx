@@ -42,7 +42,7 @@ const TutorOnboardingContainer = () => {
     setOpen(true);
   };
   return (
-    <div className="flex min-h-screen overflow-x-hidden bg-white">
+<div className="grid grid-cols-1 lg:grid-cols-12 items-start min-h-screen overflow-x-hidden bg-white">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
           className="sm:max-w-[500px]"
@@ -88,20 +88,20 @@ const TutorOnboardingContainer = () => {
         </DialogContent>
       </Dialog>
 
-      <div className="w-full lg:w-1/2 flex justify-center overflow-y-auto no-scrollbar">
-        <div className="w-full max-w-2xl px-6 sm:px-8 lg:px-12 py-8 sm:py-12">
+      <div className=" lg:col-span-6  w-full flex flex-col justify-center overflow-y-auto no-scrollbar ">
+        <div className="w-full px-6 sm:px-8 lg:px-12 py-8 sm:py-12">
           <div className="mb-8 sm:mb-12 animate-fade-in">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 text-center">
               Complete Your Tutor Profile
             </h1>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-center">
-              Tell us more about your teaching experience, qualifications, and
-              what makes you a great tutor. This information helps us match you
+              Tell us more about your teaching experience, qualifications, and <br  className="hidden 2xl:block"/>
+              what makes you a great tutor. This information helps us match you <br  className="hidden 2xl:block"/>
               with the right students globally.
             </p>
           </div>
 
-          <form className="space-y-8 sm:space-y-10">
+          <form className="space-y-8 sm:space-y-10 2xl:max-w-2xl mx-auto !w-full ">
             <div
               className="animate-slide-up"
               style={{ animationDelay: "0.1s" }}

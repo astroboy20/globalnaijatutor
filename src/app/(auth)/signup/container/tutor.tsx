@@ -8,7 +8,7 @@ const TutorForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   return (
-    <form className="space-y-3">
+    <form className="space-y-5 2xl:max-w-2xl mx-auto w-full">
       <div className="flex flex-col gap-3">
         <label htmlFor="fullName" className="text-[12px] text-brandBlack">
           Full Name

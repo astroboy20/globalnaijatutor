@@ -26,7 +26,7 @@ const SignUpContainer = ({ account_type }: SignUpProps) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 items-start min-h-screen overflow-x-hidden bg-white">
       <div className="w-full lg:w-full lg:col-span-6 2xl:w-full flex flex-col justify-center overflow-y-auto no-scrollbar ">
-        <div className="flex flex-col gap-6w-full lg:px-20 p-10">
+        <div className="flex flex-col gap-6 w-full lg:px-20 p-10">
           <Link href={"/"} className="flex items-center mb-10">
             <Image
               src="/images/logo.jpg"
@@ -55,7 +55,7 @@ const SignUpContainer = ({ account_type }: SignUpProps) => {
               onValueChange={handleTabChange}
               className="w-full mx-auto"
             >
-              <TabsList className="grid w-full grid-cols-2 gap-4 items-center">
+              <TabsList className="grid w-full grid-cols-2 gap-4 items-center 2xl:max-w-2xl mx-auto ">
                 <TabsTrigger value="student">Parent / Student</TabsTrigger>
                 <TabsTrigger value="tutor">Tutor</TabsTrigger>
               </TabsList>

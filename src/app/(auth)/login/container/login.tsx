@@ -24,9 +24,9 @@ const Login = ({ account_type }: LoginProps) => {
       : "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop";
 
   return (
-    <div className="grid grid-cols-12 items-start min-h-screen overflow-x-hidden bg-white">
-      <div className="w-full col-span-6 flex justify-center overflow-y-auto no-scrollbar">
-        <div className="flex flex-col gap-6 border border-white w-full  p-10 rounded-[32px] max-w-6xl">
+    <div className="grid grid-cols-1 lg:grid-cols-12 items-start min-h-screen overflow-x-hidden bg-white">
+      <div className="w-full lg:col-span-6 flex justify-center overflow-y-auto no-scrollbar">
+        <div className="flex flex-col gap-6 border border-white w-full  p-10 rounded-[32px] ">
           {/* <Tabs
             value={currentType}
             onValueChange={handleTabChange}
@@ -58,9 +58,9 @@ const Login = ({ account_type }: LoginProps) => {
                 : "All information provided is confidential and secure."}
             </p>
           </div>
-          <form className="space-y-3">
+          <form className="space-y-5 2xl:max-w-2xl mx-auto w-full">
             <div className="flex flex-col gap-3">
-              <label htmlFor="email" className="text-[12px] text-brandBlack">
+              <label htmlFor="email" className="text-sm text-brandBlack">
                 Email{" "}
               </label>
               <Input
@@ -69,7 +69,7 @@ const Login = ({ account_type }: LoginProps) => {
               />
             </div>
             <div className="flex flex-col gap-3">
-              <label htmlFor="password" className="text-[12px] text-brandBlack">
+              <label htmlFor="password" className="text-sm text-brandBlack">
                 Password
               </label>
               <Input
