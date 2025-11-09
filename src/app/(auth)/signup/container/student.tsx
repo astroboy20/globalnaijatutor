@@ -1,4 +1,8 @@
 "use client";
+import {
+  useClassLevelsQuery,
+  useCuriculumsQuery,
+} from "@/app/provider/api/dataApi";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -25,6 +29,14 @@ const subjects = [
 const StudentForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+
+  const { data: classLevels, isLoading: isClassLoading } =
+    useClassLevelsQuery();
+  const { data: curiculums, isLoading: isCuriculumLoading } =
+    useCuriculumsQuery();
+
+  console.log("classLevels", classLevels);
+  console.log("curiculums", curiculums);
   return (
     <form className="space-y-5 2xl:max-w-2xl mx-auto w-full">
       <div className="flex flex-col gap-3">
@@ -117,10 +129,14 @@ const StudentForm = () => {
           >
             <SelectValue placeholder="Select a curriculum" />
           </SelectTrigger>
+
           <SelectContent>
-            <SelectItem value="light">Light</SelectItem>
-            <SelectItem value="dark">Dark</SelectItem>
-            <SelectItem value="system">System</SelectItem>
+            {curiculums &&
+              curiculums?.map((curiculum: any) => (
+                <SelectItem id={curiculum?.id} value={curiculum.name}>
+                  {curiculum?.name}
+                </SelectItem>
+              ))}
           </SelectContent>
         </Select>
       </div>
@@ -137,9 +153,12 @@ const StudentForm = () => {
             <SelectValue placeholder="Select a curriculum" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="light">Light</SelectItem>
-            <SelectItem value="dark">Dark</SelectItem>
-            <SelectItem value="system">System</SelectItem>
+            {classLevels &&
+              classLevels?.map((classlevel: any) => (
+                <SelectItem id={classlevel?.id} value={classlevel.name}>
+                  {classlevel?.name}
+                </SelectItem>
+              ))}
           </SelectContent>
         </Select>
       </div>

@@ -7,7 +7,7 @@ export const authApi = createApi({
     }),
     endpoints: (build) => ({
         logout: build.query({
-            query(body) {
+            query() {
                 return {
                     url: "/auth/logout",
                     method: "GET",
