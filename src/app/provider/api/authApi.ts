@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { LucideLogOut } from "lucide-react";
 
 export const authApi = createApi({
     reducerPath: "authApi",
@@ -6,6 +7,14 @@ export const authApi = createApi({
         baseUrl: "https://backend-service-q0oj.onrender.com"
     }),
     endpoints: (build) => ({
+        LucideLogOut: build.mutation({
+            query(body) {
+                return {
+                    url: "/auth/logout",
+                    method: "GET",
+                }
+            }
+        }),
         login: build.mutation({
             query(body) {
                 return {
@@ -14,8 +23,26 @@ export const authApi = createApi({
                     body
                 }
             }
-        })
+        }),
+        studentSignup: build.mutation({
+            query(body) {
+                return {
+                    url: "/students/sign-up",
+                    method: "POST",
+                    body
+                }
+            }
+        }),
+        tutorSignup: build.mutation({
+            query(body) {
+                return {
+                    url: "/tutors/sign-up",
+                    method: "POST",
+                    body
+                }
+            }
+        }),
     })
 })
 
-export const { useLoginMutation } = authApi
+export const { useLoginMutation, useStudentSignupMutation, useTutorSignupMutation } = authApi
