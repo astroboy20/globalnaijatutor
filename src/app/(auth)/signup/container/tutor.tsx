@@ -18,7 +18,16 @@ import { countries } from "@/lib/data";
 import { useTutorSignupMutation } from "@/app/provider/api/authApi";
 import { toast } from "sonner";
 
-// ✅ Validation Schema
+interface TutorFormInterface{
+  fullName: string
+  email:string
+  phone:string
+  location:string
+  timezone:string
+  password:string
+  confirmPassword:string
+}
+//  Validation Schema
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Full name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -47,7 +56,8 @@ const TutorForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [tutorSignupMutation] = useTutorSignupMutation();
-  const handleSubmit = async (values): Promise<void> => {
+
+  const handleSubmit = async (values:TutorFormInterface): Promise<void> => {
     console.log(values);
     try {
       const res = await tutorSignupMutation(values).unwrap();
@@ -74,7 +84,7 @@ const TutorForm = () => {
         setFieldValue,
         handleSubmit
       }) => {
-        // 🧭 Get filtered time zones using countries-and-timezones
+        //  Get filtered time zones using countries-and-timezones
         const filteredTimeZones = useMemo(() => {
           if (!values.location) return [];
 
